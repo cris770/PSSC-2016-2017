@@ -39,26 +39,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deanship\IReportPublisher.cs" />
-    <Compile Include="Deanship\StudyYear.cs" />
-    <Compile Include="Generics\Attendence.cs" />
-    <Compile Include="Generics\Credits.cs" />
-    <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />
-    <Compile Include="Generics\Grade.cs" />
-    <Compile Include="Generics\PlainText.cs" />
-    <Compile Include="Generics\Proportion.cs" />
-    <Compile Include="Generics\RegistrationNumber.cs" />
-    <Compile Include="Professor\Professor.cs" />
-    <Compile Include="Professor\Subjects.cs" />
+    <Compile Include="Common\Enums\EvaluationType.cs" />
+    <Compile Include="Common\Enums\ExamGradeType.cs" />
+    <Compile Include="Common\ExamGrade.cs" />
+    <Compile Include="Common\Exceptions\InvalidGradeException.cs" />
+    <Compile Include="Common\Exceptions\InvalidIdException.cs" />
+    <Compile Include="Common\Exceptions\InvalidStudentItemException.cs" />
+    <Compile Include="Common\Exceptions\InvalidStudentListException.cs" />
+    <Compile Include="Common\Exceptions\InvalidAttendenceValueException.cs" />
+    <Compile Include="Common\Guard.cs" />
+    <Compile Include="CourseManagement\Course.cs" />
+    <Compile Include="CourseManagement\CourseAssignment.cs" />
+    <Compile Include="CourseManagement\DeanshipAggregate.cs" />
+    <Compile Include="CourseManagement\GradesAssignment.cs" />
+    <Compile Include="CourseManagement\Professor.cs" />
+    <Compile Include="CourseManagement\ProfessorAggregate.cs" />
+    <Compile Include="CourseManagement\Student.cs" />
+    <Compile Include="Common\Attendence.cs" />
+    <Compile Include="Common\Credits.cs" />
+    <Compile Include="Common\Exceptions\InvalidCreditsValue.cs" />
+    <Compile Include="Common\Grade.cs" />
+    <Compile Include="Common\PlainText.cs" />
+    <Compile Include="Common\Proportion.cs" />
+    <Compile Include="Common\RegistrationNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student\GradeReport.cs" />
-    <Compile Include="Student\Student.cs" />
-    <Compile Include="Subject\EvaluationType.cs" />
-    <Compile Include="Subject\Subject.cs" />
-    <Compile Include="Subject\SubjectInformation.cs" />
-    <Compile Include="Subject\SubjectSituation.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reporting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniversityManagement.SharedKernel\UniversityManagement.SharedKernel.csproj">
+      <Project>{d231e334-2a65-4b60-aa50-ff27c3368961}</Project>
+      <Name>UniversityManagement.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

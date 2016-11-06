@@ -1,14 +1,9 @@
-﻿using Models.Generics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Models.Common;
+using UniversityManagement.SharedKernel;
 
-namespace Models.Student
+namespace Models.CourseManagement
 {
-    //Entity
-    public class Student
+    public class Student : Entity
     {
         public RegistrationNumber RegNumber { get; internal set; }
         public PlainText Name { get; internal set; }

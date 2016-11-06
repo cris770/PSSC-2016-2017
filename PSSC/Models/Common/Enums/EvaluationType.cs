@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Subject
+namespace Models.Common.Enums
 {
     public enum EvaluationType
     {
-        Distributed,
-        Exam
+        DistributedExam,
+        FullExam
     }
 }

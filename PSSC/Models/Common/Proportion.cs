@@ -1,4 +1,4 @@
-﻿namespace Models.Generics
+﻿namespace Models.Common
 {
     public class Proportion
     {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UniversityManagement.SharedKernel;
 
-namespace Models.Generics
+namespace Models.Common
 {
-    public class Attendance
+    public class Attendance : ValueObject<Attendance>
     {
         private int _count;
         public int Count { get; internal set; }
