@@ -5,6 +5,7 @@ using UniversityManagement.SharedKernel;
 
 namespace Models.CourseManagement
 {
+    //reference entity; contains properties for a course
     public class Course : Entity
     {
         public PlainText Name { get; internal set; }

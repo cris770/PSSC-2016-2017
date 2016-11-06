@@ -5,6 +5,7 @@ using UniversityManagement.SharedKernel;
 
 namespace Models.CourseManagement
 {
+    //aggregate root
     public class DeanshipAggregate:Entity
     {
         public IList<CourseAssignment> CourseAssignments { get; private set; }

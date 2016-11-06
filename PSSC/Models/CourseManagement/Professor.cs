@@ -3,7 +3,8 @@ using UniversityManagement.SharedKernel;
 
 namespace Models.CourseManagement
 {
-    public class Professor :Entity
+    //reference entity; contains information about a professor
+    public class Professor : Entity
     {
         public PlainText Name { get; internal set; }
 
