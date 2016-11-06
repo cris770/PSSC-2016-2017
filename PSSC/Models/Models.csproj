@@ -39,19 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\DateTimeRange.cs" />
-    <Compile Include="Common\Entity.cs" />
-    <Compile Include="Common\ValueObject.cs" />
-    <Compile Include="Course.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Enrollment.cs" />
-    <Compile Include="Enums\EvaluationEnum.cs" />
-    <Compile Include="Enums\GradeType.cs" />
-    <Compile Include="Grade.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Professor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
