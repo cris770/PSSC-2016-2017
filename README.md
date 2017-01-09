@@ -1,11 +1,30 @@
-# PSSC-2016-2017
+## Project Description (!FD)
+Project for 'PSSC' - Domain driven development
 
-SharedKernel project: contains a subset of the domain model. If multiple teams are working on the same project, every team must be notified
-before making any change to it. So far it contains two classes:
--Entity: an abstract class with and Id propery of type Guid; every entity inherits from it;
--ValueObject: their notion of equlity isn't based on identity, instead two object are wqual if all their fields are equal
-              they should be immutable(if you want to change a value object, you should replace the object with a new one)
-   
-Bounded contexts: course management & reporting (to be implemented)
-Grades for a certian course and student can be added only using the ProfessorAggregate root
-Courses cand be assigned only by a Deanship
+Project structure:
+
+* Models (DDD Models)
+	* Common (Classes used in more than 1 context)
+	* Contexts (Bounded contexts)
+		* Deanship 
+		* Professor 
+		* Student 
+	* Generics (Value objects)
+	* Repositories (Empty for now)
+* Testing (Unit testing)
+
+Bounded contexts:
+- Deanship
+- Professor
+- Student
+
+Context   - Aggregate root:
+* Deanship  - StudyYear
+* Professor - Subjects
+* Student	- GradeReport
+
+The Deanship is able to create a new StudyYear and manage all the subjects (Add, Update).
+
+The Professor is able to see all his subjects (TeachingSubject) and the enrolled students. He is able to add grades, attendances and set the activity proportion.
+
+The Student is able to see his grades.
