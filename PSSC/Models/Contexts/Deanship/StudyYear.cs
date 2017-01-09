@@ -1,6 +1,8 @@
-﻿using Models.Common.Subject;
+﻿using EventSourcing.Domain;
+using Models.Common.Subject;
 using Models.Generics;
 using Models.Generics.ValueObjects;
+using Student;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,19 +24,26 @@ namespace Models.Contexts.Deanship
      * !?TODO!?:
      * 1. Possibility to add students
      */
-    public class StudyYear : Entity<Guid>
+    public class StudyYear : Aggregate
     {
         private HashSet<DefinedSubject> _definedSubjects;
         public ReadOnlyCollection<DefinedSubject> Subjects { get { return _definedSubjects.ToList().AsReadOnly(); } }
-
-        private StudyYear(Guid id) : base(id)
+        private  IList<Student> _students = new List<Student>();
+        private StudyYear(Guid id) 
         {
-            Contract.Requires(id != null, "Guid is null!");
+            this.Id = id;
         }
 
-        private StudyYear() : base(Guid.NewGuid())
+        private StudyYear() 
         {
+            this.Id = Guid.NewGuid();
 
+        }
+
+        protected override void RegisterAppliers()
+        {
+            this.RegisterApplier<StudentCreated>(this.Apply);
+            throw new NotImplementedException();
         }
 
         public StudyYear(Guid id, HashSet<DefinedSubject> definedSubjects) : this(id)
@@ -93,5 +102,11 @@ namespace Models.Contexts.Deanship
 
             return _definedSubjects.First(d => d.Name == subjectName).GetStudentSituation(regNumber);
         }
+
+        private void Apply(StudentCreated evt)
+        {
+            this._students.Add( new Student() { Name=evt.Name, Id=evt.StudentId, Year=evt.StudyYear});
+        }
+      
     }
 }

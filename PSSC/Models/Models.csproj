@@ -42,6 +42,7 @@
     <Compile Include="Common\Subject\ViewableSituation.cs" />
     <Compile Include="Contexts\Deanship\DefinedSubject.cs" />
     <Compile Include="Contexts\Deanship\IReportPublisher.cs" />
+    <Compile Include="Contexts\Deanship\Student.cs" />
     <Compile Include="Contexts\Deanship\StudyYear.cs" />
     <Compile Include="Contexts\Deanship\StudyYearFactory.cs" />
     <Compile Include="Contexts\Professor\GradeableSituation.cs" />
@@ -68,7 +69,16 @@
     <Compile Include="Common\Subject\Subject.cs" />
     <Compile Include="Common\Subject\SubjectSituation.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EventSourcing\EventSourcing.csproj">
+      <Project>{65b69bbf-da7e-445a-ba5d-e9dae0a7a35a}</Project>
+      <Name>EventSourcing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\Messages.fsproj">
+      <Project>{ae3552fc-f3fe-45da-8fee-b6c7193052a6}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
