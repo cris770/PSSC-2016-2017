@@ -3,31 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{45EFB7E7-7532-422B-9D4C-C9D89402758A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{78BBDFF2-F66A-4104-9FD9-F342397E907F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityManagement.SharedKernel", "UniversityManagement.SharedKernel\UniversityManagement.SharedKernel.csproj", "{D231E334-2A65-4B60-AA50-FF27C3368961}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{45EFB7E7-7532-422B-9D4C-C9D89402758A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45EFB7E7-7532-422B-9D4C-C9D89402758A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45EFB7E7-7532-422B-9D4C-C9D89402758A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45EFB7E7-7532-422B-9D4C-C9D89402758A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D231E334-2A65-4B60-AA50-FF27C3368961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D231E334-2A65-4B60-AA50-FF27C3368961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D231E334-2A65-4B60-AA50-FF27C3368961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D231E334-2A65-4B60-AA50-FF27C3368961}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D231E334-2A65-4B60-AA50-FF27C3368961} = {78BBDFF2-F66A-4104-9FD9-F342397E907F}
 	EndGlobalSection
 EndGlobal

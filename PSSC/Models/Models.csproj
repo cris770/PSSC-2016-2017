@@ -67,12 +67,6 @@
   <ItemGroup>
     <Folder Include="Reporting\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UniversityManagement.SharedKernel\UniversityManagement.SharedKernel.csproj">
-      <Project>{d231e334-2a65-4b60-aa50-ff27c3368961}</Project>
-      <Name>UniversityManagement.SharedKernel</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
