@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{775D0863-1BDF-4E30-B82D-58FDFE06E67A}</ProjectGuid>
+    <ProjectGuid>{9446252F-9676-4318-A8D7-8F52B5528EFF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebClient</RootNamespace>
-    <AssemblyName>WebClient</AssemblyName>
+    <RootNamespace>WebPortal</RootNamespace>
+    <AssemblyName>WebPortal</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -124,7 +124,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Bootstraper.cs" />
     <Compile Include="Utils\CommandDispatcher.cs" />
     <Compile Include="Utils\CommandHandlerFactory.cs" />
     <Compile Include="Utils\ICommandHandlerFactory.cs" />
@@ -164,10 +166,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\CreateStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -178,6 +180,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{8f298cf9-4986-482d-82ec-ebec9f83a2e9}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventSourcing\EventSourcing.csproj">
       <Project>{65b69bbf-da7e-445a-ba5d-e9dae0a7a35a}</Project>
       <Name>EventSourcing</Name>
@@ -185,6 +191,10 @@
     <ProjectReference Include="..\Messages\Messages.fsproj">
       <Project>{ae3552fc-f3fe-45da-8fee-b6c7193052a6}</Project>
       <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{45efb7e7-7532-422b-9d4c-c9d89402758a}</Project>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -203,9 +213,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14271</DevelopmentServerPort>
+          <DevelopmentServerPort>25022</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14271/</IISUrl>
+          <IISUrl>http://localhost:25022/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

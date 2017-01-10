@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebClient.Controllers
+namespace WebPortal.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,6 +24,11 @@ namespace WebClient.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult CreateStudent()
+        {
             return View();
         }
     }

@@ -1,6 +1,8 @@
 ﻿using EventSourcing.Exceptions;
 using EventSourcing.Handlers;
+using EventSourcing.Persistence;
 using Messages;
+using Models.Contexts.Deanship;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +16,10 @@ namespace WebClient.Utils
 
         public CommandHandlerFactory(IEventStore eventStore)
         {
-            //Func<IRepository> newTransientRepo = () => new Repository(eventStore);
+            Func<IRepository> newTransientRepo = () => new Repository(eventStore);
 
-            //this.RegisterHandlerFactoryWithTypes(
-            //    () => new ShoppingCartHandler(newTransientRepo()),
-            //    typeof(CreateNewCart), typeof(AddProductToCart), typeof(RemoveProductFromCart), typeof(EmptyCart), typeof(Checkout));
+            this.RegisterHandlerFactoryWithTypes(
+                () => new StudyYearHandler(newTransientRepo()));
 
             //this.RegisterHandlerFactoryWithTypes(
             //    () => new OrderHandler(newTransientRepo()),

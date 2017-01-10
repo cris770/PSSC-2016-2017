@@ -43,7 +43,6 @@ namespace Models.Contexts.Deanship
         protected override void RegisterAppliers()
         {
             this.RegisterApplier<StudentCreated>(this.Apply);
-            throw new NotImplementedException();
         }
 
         public StudyYear(Guid id, HashSet<DefinedSubject> definedSubjects) : this(id)

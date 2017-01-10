@@ -54,6 +54,10 @@
     <Compile Include="Handlers\IEventDispatcher.cs" />
     <Compile Include="Handlers\IEventHandler.cs" />
     <Compile Include="Handlers\IHandler.cs" />
+    <Compile Include="Persistence\EventStoreStream.cs" />
+    <Compile Include="Persistence\IEventStore.cs" />
+    <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
