@@ -30,8 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +56,33 @@
     <Compile Include="MongoDb\MongoDb.cs" />
     <Compile Include="MongoDb\ReadModels\StudentReadModel.cs" />
     <Compile Include="MongoDb\StudyYearEventHandler.cs" />
+    <Compile Include="Persistence\Course.cs">
+      <DependentUpon>UniversityManagementData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Enrollment.cs">
+      <DependentUpon>UniversityManagementData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Professor.cs">
+      <DependentUpon>UniversityManagementData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Student.cs">
+      <DependentUpon>UniversityManagementData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\UniversityManagementData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityManagementData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\UniversityManagementData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityManagementData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\UniversityManagementData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityManagementData.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +94,34 @@
       <Project>{ae3552fc-f3fe-45da-8fee-b6c7193052a6}</Project>
       <Name>Messages</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Persistence\UniversityManagementData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversityManagementData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Persistence\UniversityManagementData.edmx.diagram">
+      <DependentUpon>UniversityManagementData.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\UniversityManagementData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UniversityManagementData.Context.cs</LastGenOutput>
+      <DependentUpon>UniversityManagementData.edmx</DependentUpon>
+    </Content>
+    <Content Include="Persistence\UniversityManagementData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityManagementData.edmx</DependentUpon>
+      <LastGenOutput>UniversityManagementData.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

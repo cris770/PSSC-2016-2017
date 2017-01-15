@@ -1,9 +1,6 @@
 ﻿using Data.MongoDb;
+using EventProcessing;
 using Messages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace WebClient.Utils
 {
@@ -11,11 +8,23 @@ namespace WebClient.Utils
     //Works like this for demo purposes only
     public class Bootstraper
     {
+        public static BootstrapingResult Bootstrap()
+        {
+            var store = new Data.InMemoryEventStore();
+            var handlerFactory = new CommandHandlerFactory(store);
+            var dispatcher = new CommandDispatcher(handlerFactory);
+
+            var mongoDb = new MongoDb();
+            var eventHandlerFactory = new EventHandlerFactory(store, dispatcher, mongoDb);
+            var eventDispatcher = new EventDispatcher(eventHandlerFactory);
+            var eventProcessor = new EventProcessor(store, eventDispatcher);
+            return new BootstrapingResult(mongoDb, dispatcher);
+        }
     }
 
-    public class BottstrapingResult
+    public class BootstrapingResult
     {
-        public BottstrapingResult(MongoDb mongoDb, CommandDispatcher dispatcher)
+        public BootstrapingResult(MongoDb mongoDb, CommandDispatcher dispatcher)
         {
             this.MongoDb = mongoDb;
             this.dispatcher = dispatcher;

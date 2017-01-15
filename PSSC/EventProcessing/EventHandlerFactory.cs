@@ -2,6 +2,7 @@
 using EventSourcing.Handlers;
 using EventSourcing.Persistence;
 using Messages;
+using Student;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,9 @@ namespace EventProcessing
 
         private void RegisterHandlerFactories(IEventStore eventStore, ICommandDispatcher dispatcher, MongoDb mongo)
         {
-            //this.RegisterHandlerFactoryWithTypes(
-            //    () => new ShoppingCartEventHandler(mongo),
-            //    typeof(CartCreated), typeof(ProductAddedToCart), typeof(ProductRemovedFromCart), typeof(CartEmptied), typeof(CartCheckedOut));
-
-            //this.RegisterHandlerFactoryWithTypes(
-            //    () => new OrderEventHandler(new Repository(eventStore), dispatcher),
-            //    typeof(OrderCreated), typeof(PaymentReceived), typeof(ShippingAddressConfirmed));
+            this.RegisterHandlerFactoryWithTypes(
+                () => new StudyYearEventHandler(mongo),
+                typeof(StudentCreated), typeof(CourseAddedForStudent));
         }
 
         private void RegisterHandlerFactoryWithTypes(Func<IHandler> handler, params Type[] types)

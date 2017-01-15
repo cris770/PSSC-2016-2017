@@ -184,6 +184,10 @@
       <Project>{8f298cf9-4986-482d-82ec-ebec9f83a2e9}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EventProcessing\EventProcessing.csproj">
+      <Project>{B95C0B5E-F310-4718-B949-59C8A0AEDE62}</Project>
+      <Name>EventProcessing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventSourcing\EventSourcing.csproj">
       <Project>{65b69bbf-da7e-445a-ba5d-e9dae0a7a35a}</Project>
       <Name>EventSourcing</Name>

@@ -17,9 +17,17 @@ namespace Models.Contexts.Deanship
         {
             this._repo = repo;
         }
+
         public void Handle(CreateNewStudent cmd)
         {
-            throw new NotImplementedException();
+            Execute(cmd.StudentId, (sy) => sy.AddStudent(cmd.StudentId, cmd.Name, cmd.StudyYear));
+        }
+
+        private void Execute(Guid id, Action<StudyYear> action)
+        {
+           var studyYear = _repo.GetById<StudyYear>(id);
+            action(studyYear);
+            this._repo.Save(studyYear);
         }
     }
 }

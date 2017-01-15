@@ -3,6 +3,7 @@ using EventSourcing.Handlers;
 using EventSourcing.Persistence;
 using Messages;
 using Models.Contexts.Deanship;
+using Student;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,10 @@ namespace WebClient.Utils
             Func<IRepository> newTransientRepo = () => new Repository(eventStore);
 
             this.RegisterHandlerFactoryWithTypes(
-                () => new StudyYearHandler(newTransientRepo()));
+                () => new StudyYearHandler(newTransientRepo()),
+                typeof(CreateNewStudent), typeof(AddCourseForStudent));
 
-            //this.RegisterHandlerFactoryWithTypes(
-            //    () => new OrderHandler(newTransientRepo()),
-            //    typeof(PayForOrder), typeof(ConfirmShippingAddress), typeof(CompleteOrder));
+       
         }
 
         private void RegisterHandlerFactoryWithTypes(Func<IHandler> handler, params Type[] types)

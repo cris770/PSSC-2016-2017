@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventProcessing", "EventPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPortal", "WebPortal\WebPortal.csproj", "{9446252F-9676-4318-A8D7-8F52B5528EFF}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "UniversityManagemntDB", "UniversityManagemntDB\UniversityManagemntDB.sqlproj", "{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{9446252F-9676-4318-A8D7-8F52B5528EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9446252F-9676-4318-A8D7-8F52B5528EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9446252F-9676-4318-A8D7-8F52B5528EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B0406E-5D1B-4CEC-B854-B5E4A269E93F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

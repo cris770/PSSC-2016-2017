@@ -1,4 +1,5 @@
 ﻿using EventSourcing.Domain;
+using Messages;
 using Models.Common.Subject;
 using Models.Generics;
 using Models.Generics.ValueObjects;
@@ -27,14 +28,15 @@ namespace Models.Contexts.Deanship
     public class StudyYear : Aggregate
     {
         private HashSet<DefinedSubject> _definedSubjects;
+        private readonly List<IEvent> changes;
         public ReadOnlyCollection<DefinedSubject> Subjects { get { return _definedSubjects.ToList().AsReadOnly(); } }
         private  IList<Student> _students = new List<Student>();
-        private StudyYear(Guid id) 
-        {
-            this.Id = id;
-        }
+        //private StudyYear(Guid id) 
+        //{
+        //    this.Id = id;
+        //}
 
-        private StudyYear() 
+        public StudyYear() 
         {
             this.Id = Guid.NewGuid();
 
@@ -45,18 +47,16 @@ namespace Models.Contexts.Deanship
             this.RegisterApplier<StudentCreated>(this.Apply);
         }
 
-        public StudyYear(Guid id, HashSet<DefinedSubject> definedSubjects) : this(id)
+        //public StudyYear(Guid id, HashSet<DefinedSubject> definedSubjects) : this(id)
+        //{
+        //    Contract.Requires(definedSubjects != null, "Defined subjects!");
+
+        //    _definedSubjects = definedSubjects;
+        //}
+
+        public StudyYear Create(Guid id)
         {
-            Contract.Requires(definedSubjects != null, "Defined subjects!");
-
-            _definedSubjects = definedSubjects;
-        }
-
-        public StudyYear(HashSet<DefinedSubject> definedSubjects) : this()
-        {
-            Contract.Requires(definedSubjects != null, "Defined subjects!");
-
-            _definedSubjects = definedSubjects;
+            return new StudyYear();
         }
 
         public void DefineSubject(PlainText subjectName, Credits credits, Dictionary<Common.Student.Student, ViewableSituation> enrolledStudents,
@@ -102,10 +102,20 @@ namespace Models.Contexts.Deanship
             return _definedSubjects.First(d => d.Name == subjectName).GetStudentSituation(regNumber);
         }
 
+        public void AddStudent(Guid studentId, string name, int year)
+        {
+            _students.Add(new Student() { Id = studentId, Name = name, Year = year });
+        }
+
         private void Apply(StudentCreated evt)
         {
             this._students.Add( new Student() { Name=evt.Name, Id=evt.StudentId, Year=evt.StudyYear});
         }
-      
+
+        protected void ApplyChanges(StudentCreated evt)
+        {
+            this.Apply(evt);
+            this.changes.Add(evt);
+        }
     }
 }
